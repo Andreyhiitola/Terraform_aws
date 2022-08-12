@@ -57,19 +57,19 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      
+     
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2.5.0
         with:
-           playbook:    playbook_nginx.yaml   
+          playbook:    playbook_nginx.yaml   
            
-           Directory: ./Ansible
-           # Optional, SSH private key
+          Directory: ./Ansible
+          # Optional, SSH private key
           
           options: |
-             --user ubuntu
-             --key-file file.pem
-             --private-key "${PRIVATE_KEY_FILE}"
+            --user ubuntu
+            --key-file file.pem
+            #   --private-key "${PRIVATE_KEY_FILE}"
             #  -e "key=~/.ssh/id_rsa.pub"
             #  --verbose  vvv
             # --inventory hosts.txt

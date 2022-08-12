@@ -64,7 +64,7 @@ jobs:
            # Optional, additional flags to pass to ansible-playbook
            options: |
              --user ubuntu
-             --key-file mykeypair.pem
+             --private-key mykeypair.pem
              --inventory hosts.txt
              --verbose vvv
            # --limit group1

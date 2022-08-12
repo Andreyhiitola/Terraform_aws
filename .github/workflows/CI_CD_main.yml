@@ -2,7 +2,7 @@
 
 name: CI
 env: 
-     key: ${{secrets.SSH_PRIVET_KEY}}
+     PRIVATE_KEY_FILE: ${{secrets.SSH_PRIVET_KEY}}
 
 # Controls when the workflow will run
 on:
@@ -65,7 +65,8 @@ jobs:
            # Optional, additional flags to pass to ansible-playbook
            options: |
               --user ubuntu
-              --key-file "${key}"   
+              --private-key --private-key PRIVATE_KEY_FILE
+              #--key-file "${key}"   
               -e "key=~/.ssh/id_rsa.pub"
               --verbose  vvv
            # --inventory hosts.txt

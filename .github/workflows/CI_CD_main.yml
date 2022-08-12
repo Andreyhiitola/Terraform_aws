@@ -2,9 +2,12 @@
 
 name: CI
 env: 
-     PRIVATE_KEY_FILE: ${{secrets.SSH_PRIVET_KEY}}     
-     SSH_PUBLIC_KEY: |
-             52.59.228.116 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL3JKUuQFvYXiSCNclOZBRXO2vi7ZbjCMfjYtXKqsESN
+     aws_access_key: "{{ ec2_access_key }}"
+     aws_secret_key: "{{ ec2_secret_key }}"
+     region: eu-central-1 
+   
+    # instance_type: t1.micro
+    # image: ami-86e0ffe7
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch

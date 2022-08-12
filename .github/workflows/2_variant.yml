@@ -34,6 +34,11 @@ jobs:
       
       - name: create secret_id_rsa 
         run: echo "${PRIVET_KEY}" > secret_id_rsa
+      
+      - name: list folder 
+        run:  ls -la  
+                      
+        
       - name: cat secrtet_id_rsa
         run: cat secret_id_rsa    
        

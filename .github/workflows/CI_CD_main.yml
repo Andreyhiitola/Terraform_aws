@@ -46,18 +46,18 @@ jobs:
         uses: dawidd6/action-ansible-playbook@v2
         with:
            # Required, playbook filepath
-           #playbook:  playbook_nginx.yaml --user ubuntu --key-file "${KEY_SSH}" #-e "key=~/.ssh/id_rsa.pub" 
+           playbook:  playbook_nginx.yaml --user ubuntu --key-file "${KEY_SSH}" #-e "key=~/.ssh/id_rsa.pub" 
           
-           playbook: playbook_nginx.yaml --user ubuntu --key-file mykeypair.pem -e "key=~/.ssh/id_rsa.pub"
+          # playbook: playbook_nginx.yaml --user ubuntu --key-file mykeypair.pem -e "key=~/.ssh/id_rsa.pub"
            # Optional, directory where playbooks live
-           #directory: ./Ansible
+           directory: ./Ansible
            # Optional, SSH private key
-           KEY_SSH : ${{secrets.MY_KEY_PAIR_PEM}}
+           KEY_SSH : ${{secrets.SSH_PRIVET_KEY}}
   
            # Optional, SSH known hosts file content
            # known_hosts: .known_hosts
            # Optional, encrypted vault password
-           # vault_password: ${{secrets.VAULT_PASSWORD}}
+          # vault_password: ${{secrets.VAULT_PASSWORD}}
            # Optional, galaxy requirements filepath
            # requirements: galaxy-requirements.yml
            # Optional, additional flags to pass to ansible-playbook

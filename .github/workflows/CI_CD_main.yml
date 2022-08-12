@@ -65,10 +65,10 @@ jobs:
       - name: Run playbook 
         uses: Hugozys/ansible-deploy@master
         with:
-          directory:"./Ansible"
-          playbook:"deploy.yaml"
+          directory: ./Ansible
+          playbook: playbook_nginx.yaml
           ssh_key_file_name: secret_id_rsa
-          verbose: "2"   
+          verbose: 2 
      
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2.5.0

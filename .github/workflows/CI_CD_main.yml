@@ -1,6 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI
+env: 
+     key: ${{secrets.SSH_PRIVET_KEY}}
 
 # Controls when the workflow will run
 on:
@@ -57,7 +59,7 @@ jobs:
            # Optional, SSH known hosts file content
            # known_hosts: .known_hosts
            # Optional, encrypted vault password
-           key: ${{secrets.SSH_PRIVET_KEY}}
+           #key: ${{secrets.SSH_PRIVET_KEY}}
            # Optional, galaxy requirements filepath
            # requirements: galaxy-requirements.yml
            # Optional, additional flags to pass to ansible-playbook

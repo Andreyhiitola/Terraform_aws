@@ -33,7 +33,7 @@ jobs:
         run: ls -la 
       
       - name: create secret_id_rsa 
-        run: echo "$SSH_PRIVATE_KEY" > secret_id_rsa
+        run: echo "${SSH_PRIVATE_KEY}" > secret_id_rsa
         
       - name: create secret_id_rsa 
         run: echo "${KEY_PEM}" > secret_id_rsa.pem  
@@ -72,11 +72,11 @@ jobs:
         uses: dawidd6/action-ansible-playbook@v2
         with:
         # Required, playbook filepath
-          playbook: playbook_nginx.yaml 
+          playbook: playbook_nginx.yaml  key-file secret_id_rsa.pem
         # Optional, directory where playbooks live
           directory: ./Ansible
         # Optional, SSH private key
-          key :  ${{secrets.SSH_PRIVATE_KEY}}
+          key :  SSH_PRIVATE_KEY
         # Optional, literal inventory file contents
        # inventory: |
         #  [all]

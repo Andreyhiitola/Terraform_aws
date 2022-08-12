@@ -34,7 +34,9 @@ jobs:
       
       - name: create secret_id_rsa 
         run: echo "${PRIVET_KEY}" > secret_id_rsa
-      
+      - name: cat secrtet_id_rsa
+        run: cat secret_id_rsa    
+       
       - name: chmod 0400 
         run: |
              chmod 0400 secret_id_rsa

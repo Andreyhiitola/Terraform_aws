@@ -50,7 +50,7 @@ jobs:
           
            #playbook_nginx.yaml --user ubuntu --key-file "${key}" -e "key=~/.ssh/id_rsa.pub"
            # Optional, directory where playbooks live
-           directory: ./Ansible
+           #directory: ./Ansible
            # Optional, SSH private key
            key : ${{secrets.MY_KEY_PAIR_PEM}}
   

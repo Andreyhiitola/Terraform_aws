@@ -63,7 +63,7 @@ jobs:
            # Optional, additional flags to pass to ansible-playbook
            options: |
               --user ubuntu
-              --private-key mykeypair.pem
+              --private-key ${{SSH_PRIVET_KEY}}   #mykeypair.pem
               -e "key=~/.ssh/id_rsa.pub"
            #  --inventory hosts.txt
            #  --verbose vvv

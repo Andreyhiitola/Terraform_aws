@@ -44,7 +44,7 @@ jobs:
         run: echo "${PRIVET_KEY}" > PRIVET_KEY_PEM
       
       - name: chmod 0400 
-        run: chmod 0400 PRIVET_KEY_PEM
+        run: chmod 0400 PRIVET_KEY_PEMPRIVET_KEY_PEM
         
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -57,7 +57,7 @@ jobs:
 
         with:
            
-           playbook:    playbook_nginx.yaml   
+           playbook:    playbook_nginx.yaml   --PRIVET_KEY_PEM
          
            # Required, playbook filepath
            #playbook:  playbook_nginx.yaml --user ubuntu --key-file "${KEY_SSH}" #-e "key=~/.ssh/id_rsa.pub" 

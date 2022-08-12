@@ -57,13 +57,13 @@ jobs:
            # Optional, SSH known hosts file content
            # known_hosts: .known_hosts
            # Optional, encrypted vault password
-          # vault_password: ${{secrets.VAULT_PASSWORD}}
+           KEY_SSH: ${{secrets.SSH_PRIVET_KEY}}
            # Optional, galaxy requirements filepath
            # requirements: galaxy-requirements.yml
            # Optional, additional flags to pass to ansible-playbook
            options: |
               --user ubuntu
-              --private-key ${{SSH_PRIVET_KEY}}   #mykeypair.pem
+              --private-key ${KEY_SSH}   #mykeypair.pem
               -e "key=~/.ssh/id_rsa.pub"
            #  --inventory hosts.txt
            #  --verbose vvv

@@ -1,7 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI
-
+env: 
+     PRIVATE_KEY_FILE: ${{secrets.SSH_PRIVET_KEY}}     
+     SSH_PUBLIC_KEY: |
+        ssh-rsa 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -40,33 +43,33 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          
-  
+           
       - name: Run playbook
-        uses: dawidd6/action-ansible-playbook@v2
+        uses: dawidd6/action-ansible-playbook@v2.5.0
+
         with:
+           
+           playbook:    playbook_nginx.yaml   
+         
            # Required, playbook filepath
-           playbook:  playbook_nginx.yaml --user ubuntu --key-file mykeypair.pem -e "key=~/.ssh/id_rsa.pub" 
-          
-           #playbook_nginx.yaml --user ubuntu --key-file "${key}" -e "key=~/.ssh/id_rsa.pub"
+           #playbook:  playbook_nginx.yaml --user ubuntu --key-file "${KEY_SSH}" #-e "key=~/.ssh/id_rsa.pub" 
+           # playbook_nginx.yaml --user ubuntu --key-file mykeypair.pem -e "key=~/.ssh/id_rsa.pub"
            # Optional, directory where playbooks live
-           #directory: ./Ansible
+           directory: ./Ansible
            # Optional, SSH private key
-           #key : ${{secrets.MY_KEY_PAIR_PEM}}
-  
+
            # Optional, SSH known hosts file content
            # known_hosts: .known_hosts
            # Optional, encrypted vault password
-           # vault_password: ${{secrets.VAULT_PASSWORD}}
+           #key: ${{secrets.SSH_PRIVET_KEY}}
            # Optional, galaxy requirements filepath
            # requirements: galaxy-requirements.yml
            # Optional, additional flags to pass to ansible-playbook
-           #options: |
-             
-             
-           #  --key-file "${key}"
-           # --verbose vvv 
-           # --inventory .hosts
+           options: |
+              --private-key "${PRIVATE_KEY_FILE}"
+              -e "key=~/.ssh/id_rsa.pub"
+              --verbose  vvv
+           # --inventory hosts.txt
            # --limit group1
            # --extra-vars  hello=there
            # --user ubuntu  

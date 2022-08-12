@@ -65,10 +65,10 @@ jobs:
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2.5.0
         with:
-          playbook:    playbook_nginx.yaml   file.pem
+          playbook:    playbook_nginx.yaml  # file.pem
           Directory: ./Ansible
           # Optional, SSH private key
-          
+         # key
           #options: |
          #   --user ubuntu
          #   --private-key file.pem

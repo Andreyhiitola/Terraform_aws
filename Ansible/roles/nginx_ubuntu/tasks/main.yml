@@ -1,0 +1,93 @@
+---
+#  - name: Update all packages to their latest version
+#    ansible.builtin.apt:
+#    name: "*"
+#    state: latest  
+#    exclude: kernel*
+
+  - name: Install aptitude
+    apt:
+      name: aptitude
+      state: latest
+      update_cache: true
+
+  - name: Install required system packages
+    apt:
+      pkg:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - software-properties-common
+        - python3-pip
+        - virtualenv
+        - python3-setuptools
+      state: latest
+      update_cache: true
+
+  - name: Add Docker GPG apt Key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+  - name: Add Docker Repository
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu focal stable
+      state: present
+
+  - name: Update apt and install docker-ce
+    apt:
+      name: docker-ce
+      state: latest
+      update_cache: true
+    register: y
+
+  - name: Checkinginstall status
+    debug:
+      var: y.failed
+
+  - name: Install Docker Module for Python
+    pip:
+      name: docker
+  
+  - name: Start Docker Daemon
+    service:
+      name: docker
+      state: started
+      enabled: yes
+    when: y.failed == false
+
+  - name: Pull a Docker image
+    docker_image:
+      name: andreysagurov/nginx
+      tag: latest
+      source: pull  
+    register: z
+     
+  - name: Creating a Persistent Volume Dir
+    file: 
+      path: /var/www
+      state: directory
+
+  - name: Copying the HTML code in the Directory
+    template: 
+      src: index.j2.html
+      dest: "{{ nginx_file }}/index.html"
+    notify: Restarted launching NGINX Container
+    
+  - name: Launching NGINX Container
+    when: z.failed == false
+    docker_container:
+      name: nginx
+      image: andreysagurov/nginx
+      state: started
+      exposed_ports:
+           - "80"
+      ports: 
+           - "8888:80"
+      volumes:
+           - "{{ nginx_file }}/index.html:/usr/share/nginx/html/index.html"
+      
+      
+
+
+  

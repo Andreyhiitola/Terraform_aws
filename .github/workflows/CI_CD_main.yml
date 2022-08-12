@@ -46,11 +46,10 @@ jobs:
       - name: chmod 0400 
         run: |
              chmod 0400 file.pem
-             pwd 
              ls -la
              
-     # - name: list folder 
-      #  run: ls -la 
+      - name: pwd
+        run: pwd 
         
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -62,17 +61,11 @@ jobs:
         uses: dawidd6/action-ansible-playbook@v2.5.0
         with:
           playbook:    playbook_nginx.yaml   
-           
           Directory: ./Ansible
           # Optional, SSH private key
           
           options: |
             --user ubuntu
-            --key-file file.pem
-            #   --private-key "${PRIVATE_KEY_FILE}"
-            #  -e "key=~/.ssh/id_rsa.pub"
-            #  --verbose  vvv
-            # --inventory hosts.txt
-            # --limit group1
-            # --extra-vars  hello=there
-            # --user ubuntu  
+            --key-file ./file.pem
+            --vvv
+             

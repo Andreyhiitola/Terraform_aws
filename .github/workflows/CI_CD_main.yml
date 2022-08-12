@@ -57,7 +57,7 @@ jobs:
 
         with:
            
-           playbook:    playbook_nginx.yaml   --PRIVET_KEY_PEM
+           playbook:    playbook_nginx.yaml   --key-file PRIVET_KEY_PEM
          
            # Required, playbook filepath
            #playbook:  playbook_nginx.yaml --user ubuntu --key-file "${KEY_SSH}" #-e "key=~/.ssh/id_rsa.pub" 

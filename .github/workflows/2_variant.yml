@@ -48,17 +48,39 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       
-      - name: Run playbook 
-        uses: Hugozys/ansible-deploy@master
+     # - name: Run playbook 
+    #   uses: Hugozys/ansible-deploy@master
+    #   with:
+    #      directory: ./Ansible
+    #      playbook: playbook_nginx.yaml
+    #      ssh_key_file_name: secret_id_rsa
+    #      verbose: 2 
+     
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
         with:
-          directory: ./Ansible
+        # Required, playbook filepath
           playbook: playbook_nginx.yaml
-          ssh_key_file_name: secret_id_rsa
-          verbose: 2 
-     
-     
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
+        # Optional, directory where playbooks live
+          directory: ./Ansible
+        # Optional, SSH private key
+          key: ${{secret_id_rsa}}
+        # Optional, literal inventory file contents
+       # inventory: |
+        #  [all]
+         # example.com
+
+          #[group1]
+     # example.com
+    # Optional, SSH known hosts file content
+  #  known_hosts: .known_hosts
+    # Optional, encrypted vault password
+  #  vault_password: ${{secrets.VAULT_PASSWORD}}
+    # Optional, galaxy requirements filepath
+  #  requirements: galaxy-requirements.yml
+    # Optional, additional flags to pass to ansible-playbook
+   # options: |
+    #  --inventory .hosts
+     # --limit group1
+      #--extra-vars hello=there
+      #--verbose

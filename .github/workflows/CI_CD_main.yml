@@ -41,12 +41,12 @@ jobs:
         run: ls -la 
       
       - name: create file.pem 
-        run: echo "${PRIVET_KEY}" > file.pem
+        run: echo "${PRIVET_KEY}" > secret_id_rsa
       
       - name: chmod 0400 
         run: |
-             chmod 0400 file.pem
-             ls -la
+             chmod 0400 secret_id_rsa
+         
       - name: chmod 0400 mykeypair.pem
         run:  chmod 0400 ./Ansible/mykeypair.pem
         
@@ -61,6 +61,14 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      
+      - name: Run playbook 
+        uses: Hugozys/ansible-deploy@master
+        with:
+          directory:"./Ansible"
+          playbook:"deploy.yaml"
+          ssh_key_file_name: secret_id_rsa
+          verbose: "2"   
      
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2.5.0

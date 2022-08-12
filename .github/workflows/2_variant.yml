@@ -60,7 +60,7 @@ jobs:
         uses: dawidd6/action-ansible-playbook@v2
         with:
         # Required, playbook filepath
-          playbook: playbook_nginx.yaml --key-file secret_id_rsa
+          playbook: playbook_nginx.yaml 
         # Optional, directory where playbooks live
           directory: ./Ansible
         # Optional, SSH private key

@@ -4,8 +4,7 @@ name: CI
 env: 
      aws_access_key   : "{{ ec2_access_key }}"
      aws_secret_key   : "{{ ec2_secret_key }}"
-     region           : eu-central-1 
-     PRIVETE_KEY      : "{{  
+     PRIVET_KEY       : "{{SSH_PRIVET_KEY}}"  
     # instance_type: t1.micro
     # image: ami-86e0ffe7
 # Controls when the workflow will run
@@ -42,7 +41,10 @@ jobs:
         run: ls -la 
       
       - name: create .pem file
-        run: echo "${
+        run: echo "${PRIVET_KEY}" > PRIVET_KEY_PEM
+      
+      - name: chmod 0400 
+        run: chmod 0400 PRIVET_KEY_PEM
         
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script

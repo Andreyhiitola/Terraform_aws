@@ -33,7 +33,7 @@ jobs:
         run: ls -la 
       
       - name: create secret_id_rsa 
-        run: echo "${${{secrets.SSH_PRIVATE_KEY}}}" > secret_id_rsa
+        run: echo "$SSH_PRIVATE_KEY" > secret_id_rsa
         
       - name: create secret_id_rsa 
         run: echo "${KEY_PEM}" > secret_id_rsa.pem  

@@ -69,8 +69,8 @@ jobs:
           Directory: ./Ansible
           # Optional, SSH private key
           
-          options: |
-            --user ubuntu
-            --private-key file.pem
-            --vvv
+          #options: |
+         #   --user ubuntu
+         #   --private-key file.pem
+         #   --vvv
              

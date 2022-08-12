@@ -4,7 +4,7 @@ name: CI
 env: 
      PRIVATE_KEY_FILE: ${{secrets.SSH_PRIVET_KEY}}     
      SSH_PUBLIC_KEY: |
-        ssh-rsa 
+             52.59.228.116 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL3JKUuQFvYXiSCNclOZBRXO2vi7ZbjCMfjYtXKqsESN
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -65,10 +65,10 @@ jobs:
            # Optional, galaxy requirements filepath
            # requirements: galaxy-requirements.yml
            # Optional, additional flags to pass to ansible-playbook
-           options: |
-              --private-key "${PRIVATE_KEY_FILE}"
-              -e "key=~/.ssh/id_rsa.pub"
-              --verbose  vvv
+           #options: |
+           #   --private-key "${PRIVATE_KEY_FILE}"
+            #  -e "key=~/.ssh/id_rsa.pub"
+            #  --verbose  vvv
            # --inventory hosts.txt
            # --limit group1
            # --extra-vars  hello=there

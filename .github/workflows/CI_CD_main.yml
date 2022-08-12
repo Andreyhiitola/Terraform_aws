@@ -56,32 +56,19 @@ jobs:
           echo test, and deploy your project.
       
       - name: Run playbook
-        run:  ansible-playbook playbook_nginx.yaml   --key-file file.pem
-        
-    #  - name: Run playbook
-     #   uses: dawidd6/action-ansible-playbook@v2.5.0
-      #  with:
-       #     playbook:    playbook_nginx.yaml   --key-file file.pem
-         
-           # Required, playbook filepath
-           #playbook:  playbook_nginx.yaml --user ubuntu --key-file "${KEY_SSH}" #-e "key=~/.ssh/id_rsa.pub" 
-           # playbook_nginx.yaml --user ubuntu --key-file mykeypair.pem -e "key=~/.ssh/id_rsa.pub"
-           # Optional, directory where playbooks live
-           directory: ./Ansible
+        uses: dawidd6/action-ansible-playbook@v2.5.0
+        with:
+           playbook:    playbook_nginx.yaml   
+           
+          # Directory: ./Ansible
            # Optional, SSH private key
-
-           # Optional, SSH known hosts file content
-           # known_hosts: .known_hosts
-           # Optional, encrypted vault password
-           #key: ${{secrets.SSH_PRIVET_KEY}}
-           # Optional, galaxy requirements filepath
-           # requirements: galaxy-requirements.yml
-           # Optional, additional flags to pass to ansible-playbook
-           #options: |
-           #   --private-key "${PRIVATE_KEY_FILE}"
+           options: |
+             --user ubuntu
+             --key-file file.pem
+             --private-key "${PRIVATE_KEY_FILE}"
             #  -e "key=~/.ssh/id_rsa.pub"
             #  --verbose  vvv
-           # --inventory hosts.txt
-           # --limit group1
-           # --extra-vars  hello=there
-           # --user ubuntu  
+            # --inventory hosts.txt
+            # --limit group1
+            # --extra-vars  hello=there
+            # --user ubuntu  

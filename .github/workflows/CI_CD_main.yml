@@ -56,7 +56,8 @@ jobs:
           echo test, and deploy your project.
       
       - name: Run playbook
-        run:  playbook_nginx.yaml   --key-file file.pem
+        run:  ansible-playbook playbook_nginx.yaml   --key-file file.pem
+        
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2.5.0
         with:

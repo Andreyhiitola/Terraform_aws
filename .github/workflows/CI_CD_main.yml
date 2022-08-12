@@ -66,7 +66,7 @@ jobs:
            # requirements: galaxy-requirements.yml
            # Optional, additional flags to pass to ansible-playbook
            options: |
-              --private-key PRIVATE_KEY_FILE
+              --private-key "${PRIVATE_KEY_FILE}"
               -e "key=~/.ssh/id_rsa.pub"
               --verbose  vvv
            # --inventory hosts.txt

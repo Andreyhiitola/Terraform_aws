@@ -40,11 +40,11 @@ jobs:
       - name: list folder 
         run: ls -la 
       
-      - name: create .pem file
-        run: echo "${PRIVET_KEY}" > PRIVET_KEY_PEM
+      - name: create file.pem 
+        run: echo "${PRIVET_KEY}" > file.pem
       
       - name: chmod 0400 
-        run: chmod 0400 PRIVET_KEY_PEM
+        run: chmod 0400 file.pem
       
       - name: list folder 
         run: ls -la 
@@ -60,7 +60,7 @@ jobs:
 
         with:
            
-           playbook:    playbook_nginx.yaml   --key-file PRIVET_KEY_PEM
+           playbook:    playbook_nginx.yaml   --key-file file.pem
          
            # Required, playbook filepath
            #playbook:  playbook_nginx.yaml --user ubuntu --key-file "${KEY_SSH}" #-e "key=~/.ssh/id_rsa.pub" 

@@ -47,14 +47,14 @@ jobs:
         run: |
              chmod 0400 secret_id_rsa
          
-      - name: chmod 0400 mykeypair.pem
-        run:  chmod 0400 ./Ansible/mykeypair.pem
+    #  - name: chmod 0400 mykeypair.pem
+     #   run:  chmod 0400 ./Ansible/mykeypair.pem
         
       - name: list folder 
         run:  ls -la  
              
-      - name: pwd
-        run: pwd 
+    #  - name: pwd
+    #    run: pwd 
         
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -70,15 +70,4 @@ jobs:
           ssh_key_file_name: secret_id_rsa
           verbose: 2 
      
-      - name: Run playbook
-        uses: dawidd6/action-ansible-playbook@v2.5.0
-        with:
-          playbook:    playbook_nginx.yaml  # file.pem
-          Directory: ./Ansible
-          # Optional, SSH private key
-         # key
-          #options: |
-         #   --user ubuntu
-         #   --private-key file.pem
-         #   --vvv
-             
+     

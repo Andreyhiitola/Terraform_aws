@@ -46,9 +46,10 @@ jobs:
         run: cat secret_id_rsa    
        
       - name: chmod 0400 
-        run: |
-             chmod 0400 secret_id_rsa
-             chm0d 0400 secret_id_rsa_pem
+        run: chmod 0400 secret_id_rsa
+    
+      - name: chmod 0400       
+        run:  chm0d 0400 secret_id_rsa.pem
              
       - name: list folder 
         run:  ls -la  

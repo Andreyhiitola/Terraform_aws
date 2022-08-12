@@ -40,10 +40,10 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          
-  
+           
       - name: Run playbook
-        uses: dawidd6/action-ansible-playbook@v2
+        uses: dawidd6/action-ansible-playbook@v2.5.0
+
         with:
            # Required, playbook filepath
            playbook:  playbook_nginx.yaml --user ubuntu --key-file "${KEY_SSH}" #-e "key=~/.ssh/id_rsa.pub" 

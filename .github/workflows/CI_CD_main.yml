@@ -48,10 +48,10 @@ jobs:
              chmod 0400 file.pem
              ls -la
       - name: chmod 0400 mykeypair.pem
-        run:  chmod 0400 mykeypair.pem
+        run:  chmod 0400 ./Ansible/mykeypair.pem
         
       - name: list folder 
-        run: ls -la  
+        run:  ls -la  
              
       - name: pwd
         run: pwd 

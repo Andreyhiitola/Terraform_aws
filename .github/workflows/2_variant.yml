@@ -64,7 +64,7 @@ jobs:
         # Optional, directory where playbooks live
           directory: ./Ansible
         # Optional, SSH private key
-          key: secret_id_rsa
+        #  key: secret_id_rsa
         # Optional, literal inventory file contents
        # inventory: |
         #  [all]

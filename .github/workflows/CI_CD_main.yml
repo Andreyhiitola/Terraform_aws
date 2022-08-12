@@ -58,10 +58,10 @@ jobs:
       - name: Run playbook
         run:  ansible-playbook playbook_nginx.yaml   --key-file file.pem
         
-      - name: Run playbook
-        uses: dawidd6/action-ansible-playbook@v2.5.0
-        with:
-            playbook:    playbook_nginx.yaml   --key-file file.pem
+    #  - name: Run playbook
+     #   uses: dawidd6/action-ansible-playbook@v2.5.0
+      #  with:
+       #     playbook:    playbook_nginx.yaml   --key-file file.pem
          
            # Required, playbook filepath
            #playbook:  playbook_nginx.yaml --user ubuntu --key-file "${KEY_SSH}" #-e "key=~/.ssh/id_rsa.pub" 

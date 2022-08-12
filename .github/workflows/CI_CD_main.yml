@@ -47,15 +47,16 @@ jobs:
         uses: dawidd6/action-ansible-playbook@v2.5.0
 
         with:
+           
+           playbook:    playbook_nginx.yaml   
+         
            # Required, playbook filepath
            #playbook:  playbook_nginx.yaml --user ubuntu --key-file "${KEY_SSH}" #-e "key=~/.ssh/id_rsa.pub" 
-           playbook:    playbook_nginx.yaml   
-           #playbook: playbook_nginx.yaml --user ubuntu --key-file mykeypair.pem -e "key=~/.ssh/id_rsa.pub"
+           # playbook_nginx.yaml --user ubuntu --key-file mykeypair.pem -e "key=~/.ssh/id_rsa.pub"
            # Optional, directory where playbooks live
            directory: ./Ansible
            # Optional, SSH private key
-           
-  
+
            # Optional, SSH known hosts file content
            # known_hosts: .known_hosts
            # Optional, encrypted vault password
@@ -65,8 +66,7 @@ jobs:
            # Optional, additional flags to pass to ansible-playbook
            options: |
               --user ubuntu
-              --private-key --private-key PRIVATE_KEY_FILE
-              #--key-file "${key}"   
+              --private-key PRIVATE_KEY_FILE
               -e "key=~/.ssh/id_rsa.pub"
               --verbose  vvv
            # --inventory hosts.txt

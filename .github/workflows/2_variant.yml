@@ -34,6 +34,9 @@ jobs:
       
       - name: create secret_id_rsa 
         run: echo "${PRIVET_KEY}" > secret_id_rsa
+        
+      - name: create secret_id_rsa 
+        run: echo "${KEY_PEM}" > secret_id_rsa_pem  
       
       - name: list folder 
         run:  ls -la  
@@ -45,7 +48,8 @@ jobs:
       - name: chmod 0400 
         run: |
              chmod 0400 secret_id_rsa
-           
+             chm0d 0400 secret_id_rsa_pem
+             
       - name: list folder 
         run:  ls -la  
                  

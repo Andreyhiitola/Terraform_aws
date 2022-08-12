@@ -66,6 +66,6 @@ jobs:
           
           options: |
             --user ubuntu
-            --key-file ./file.pem
+            --private-key file.pem
             --vvv
              

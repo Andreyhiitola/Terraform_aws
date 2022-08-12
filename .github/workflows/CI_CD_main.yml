@@ -64,6 +64,7 @@ jobs:
            #options: |
              
              
+             
            #  --key-file "${key}"
            # --verbose vvv 
            # --inventory .hosts

@@ -1,6 +1,6 @@
 [hosts_to_add_key]
 
-18.156.121.33    ansible_user=ubuntu
+18.197.14.19    ansible_user=ubuntu
 52.59.228.116    ansible_user=ubuntu
 
 

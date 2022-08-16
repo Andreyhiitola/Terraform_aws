@@ -32,8 +32,8 @@ jobs:
       - name: list folder 
         run: ls -la 
       
-      - name: create secret_id_rsa 
-        run: echo "${SSH_PRIVATE_KEY}" > secret_id_rsa
+      #- name: create secret_id_rsa 
+      #  run: echo "${SSH_PRIVATE_KEY}" > secret_id_rsa
         
       - name: create secret_id_rsa 
         run: echo "${KEY_PEM}" > secret_id_rsa.pem
@@ -42,8 +42,8 @@ jobs:
         run:  ls -la  
                   
         
-      - name: chmod 0400 
-        run: chmod 0400 secret_id_rsa
+      #- name: chmod 0400 
+      #  run: chmod 0400 secret_id_rsa
     
       - name: chmod 0400       
         run:  chmod 0400 secret_id_rsa.pem
@@ -91,3 +91,4 @@ jobs:
           options: |
             --extra-vars "key=id_rsa.pub"
             -v
+            -sudo

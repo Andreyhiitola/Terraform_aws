@@ -1,6 +1,7 @@
 ---
 - name: "Playbook to Add Key to Newly Provisioned EC2 Instance"
   hosts: hosts_to_add_key
+  sudo: yes
   vars:
     - status : "present"
     - key : "~/.ssh/id_rsa.pub"

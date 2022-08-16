@@ -81,8 +81,8 @@ jobs:
 
           #[group1]
      # example.com
-    # Optional, SSH known hosts file content
-  #  known_hosts: .known_hosts
+        # Optional, SSH known hosts file content
+          known_hosts: known_hosts
     # Optional, encrypted vault password
   #  vault_password: ${{secrets.VAULT_PASSWORD}}
     # Optional, galaxy requirements filepath

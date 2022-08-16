@@ -91,4 +91,4 @@ jobs:
           options: |
             --extra-vars "key=id_rsa.pub"
             -v
-            -sudo
+            

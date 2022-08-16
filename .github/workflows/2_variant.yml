@@ -89,5 +89,6 @@ jobs:
   #  requirements: galaxy-requirements.yml
     # Optional, additional flags to pass to ansible-playbook
           options: |
-            -e id_rsa.pub
+            #-e id_rsa.pub
+            --extra-vars id_rsa.pub
             -v

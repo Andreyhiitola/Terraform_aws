@@ -60,7 +60,7 @@ jobs:
      # - name: Run playbook 
     #   uses: Hugozys/ansible-deploy@master
     #   with:
-    #      directory: ./Ansible
+    #      directory: .
     #      playbook: playbook_nginx.yaml
     #      ssh_key_file_name: secret_id_rsa
     #      verbose: 2 

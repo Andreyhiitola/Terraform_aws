@@ -31,8 +31,8 @@ jobs:
       - name: list folder 
         run: ls -la 
       
-      #- name: create secret_id_rsa 
-      #  run: echo "${SSH_PRIVATE_KEY}" > secret_id_rsa
+      - name: create secret_id_rsa 
+        run: echo "${SSH_PRIVATE_KEY}" > secret_id_rsa
         
       - name: create secret_id_rsa 
         run: echo "${KEY_PEM}" > secret_id_rsa.pem
@@ -42,7 +42,9 @@ jobs:
         
       - name: list folder 
         run:  ls -la  
-            
+     
+      - name: chmod 0400       
+        run:  chmod 0400 secret_id_rsa    
      
       - name: chmod 0400       
         run:  chmod 0400 secret_id_rsa.pem
@@ -72,7 +74,7 @@ jobs:
         # Optional, directory where playbooks live
           directory: ./Ansible
         # Optional, SSH private key
-          key :  secret_id_rsa.pem
+          key :  secret_id_rsa
         # Optional, literal inventory file contents
        # inventory: |
         #  [all]

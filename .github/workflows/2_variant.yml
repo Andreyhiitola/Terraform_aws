@@ -42,11 +42,8 @@ jobs:
         
       - name: list folder 
         run:  ls -la  
-                  
-        
-      #- name: chmod 0400 
-      #  run: chmod 0400 secret_id_rsa
-    
+            
+     
       - name: chmod 0400       
         run:  chmod 0400 secret_id_rsa.pem
              
@@ -84,7 +81,7 @@ jobs:
           #[group1]
      # example.com
         # Optional, SSH known hosts file content
-          known_hosts: known_hosts
+        #  known_hosts: known_hosts
     # Optional, encrypted vault password
   #  vault_password: ${{secrets.VAULT_PASSWORD}}
     # Optional, galaxy requirements filepath

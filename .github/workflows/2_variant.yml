@@ -36,7 +36,10 @@ jobs:
         
       - name: create secret_id_rsa 
         run: echo "${KEY_PEM}" > secret_id_rsa.pem
-      
+     
+      - name: Cat file 
+        run: cat secret_id_rsa.pem
+        
       - name: list folder 
         run:  ls -la  
                   
